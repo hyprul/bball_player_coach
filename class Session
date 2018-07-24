@@ -1,0 +1,23 @@
+class Session
+	attr_accesor :player, :coach, :session_time, :skill_practiced
+
+	@@all = []
+
+
+	def initialize(player, coach, session_time, skill_practiced = 'all')
+		@player = player
+		@coach = coach
+		@session_time = session_time
+		@skill_practiced = skill_practiced
+		@@all << self
+
+	end
+
+
+	def self.all
+		@@all
+	end
+
+
+
+end

@@ -1,0 +1,45 @@
+class Coach
+	attr_accessor :name :specialty
+
+	@@all = []
+
+	def initialize(name, specialty)
+		@name = name
+		@specialty = specialty
+		@@all << self
+	end
+
+
+	def self.all
+		@@all
+	end
+
+	def create_session(player, session_time, skill_practiced = 'all')
+		Session.new(player, self, session_time, skill_practiced)
+	end
+
+
+
+
+	def players
+
+		all_sessions.map do |session|
+			session.player
+		end.uniq
+
+
+	end
+
+	def all_sessions
+		Session.all.select do |session|
+			session.coach == self
+		end
+
+	end
+
+	def hardest_working
+		
+	end
+
+
+end
